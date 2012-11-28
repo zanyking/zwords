@@ -1,0 +1,19 @@
+
+
+學習如何Mongo DB在Application Design 中如何使用：
+http://docs.mongodb.org/manual/use-cases/
+
+Java Language Center
+http://www.mongodb.org/display/DOCS/Java+Language+Center
+
+Java 語言下基本介紹
+http://www.mongodb.org/display/DOCS/Java+Tutorial
+
+MongoDB JVM javascript Engine(rhino)
+(考慮用JS處理資料與Query比較簡單。)
+http://code.google.com/p/mongodb-rhino/
+http://code.google.com/p/json-rhino/
+http://code.google.com/p/mongo-vision/
+
+SQL與Mongo DB的比較:
+http://docs.mongodb.org/manual/reference/sql-comparison/
