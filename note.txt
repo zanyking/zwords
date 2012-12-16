@@ -1,23 +1,135 @@
 
+2012-12-16
 
-學習如何Mongo DB在Application Design 中如何使用：
-http://docs.mongodb.org/manual/use-cases/
+全英文，單字的英英釋義非常重要。
+背單字應該以例句為主，而不是單字！
+單字-單字關係、單字-例句關係所構成的網路連結密集度，構成牢記單字的基礎。
 
-Java Language Center
-http://www.mongodb.org/display/DOCS/Java+Language+Center
+商業模式？
+	找字典廠商合作？
+	結合線上遊戲？電子寵物？
+	貨幣系統可從積分系統轉換而來。
 
-Java 語言下基本介紹
-http://www.mongodb.org/display/DOCS/Java+Tutorial
+網站設計：
+	OpenID支援、FB、google plus、傳統email + password (不是很重要，之後再做)
+	首頁元素要簡單(一個巨大的Start Button!)
+	index.zul： 以『卷軸等於時間軸』作為主要概念。
+		顯示下一個Milestone的達成條件與目前進度，或開始設定一個新的Milestone。
+		顯示過去的Milestones
+		
 
-MongoDB JVM javascript Engine(rhino)
-(考慮用JS處理資料與Query比較簡單。)
-http://code.google.com/p/mongodb-rhino/
-http://code.google.com/p/json-rhino/
-http://code.google.com/p/mongo-vision/
+情境一：Start a new milestone.
+	+. 設定達成目標(the goal of a milestone)
+		+. 戒律：每天要固定練習多久
+		+. 平均日單字目標
+		+. 平均周單字目標
+		+. 平均月單字目標
+		+. 總新增單字量
+	+. 設定到期日
 
-SQL與Mongo DB的比較:
-http://docs.mongodb.org/manual/reference/sql-comparison/
+情境二：開始一次遊戲
+	+. 在計畫頁面主控台下開始
+	+. 一個遊戲中，要做的事情有兩種：
+		+. 新例句與新單字輸入
+			+. 標示一個例句中的新單字，加2分。
+			+. 例句中出現已有的單字，加1分。
+				(等於為既有單字增加新例句，要小心使用者abuse 系統？)
+			+. 單字--單字關係建立
+				+. 同義、反義
+				+. 動詞、名詞、形容詞
+				+. 時態
+			+. 單字--例句關係建立
+				+. 釋義
+			+. 輸入例句：根據例句中的生字，建立單字。
 
+		+. 單字複習遊戲
+			+. 以 (LRU + Random)選取新的單字，開始測試題目。
+			+. 根據釋義、同義字猜測該單字。
+			+. 例句填空
+
+
+	+. 每個遊戲會開啟一個新視窗。
+	+. 瀏覽器關掉就是結束。
+
+情境三：計畫控制台(顯示在主頁面上)
+	+. 呈現統計資料
+		+. 總目標達成率
+		+. 複習涵蓋率
+		+. 遺忘率
+	+. 成就明細
+
+
+
+
+ 1 天 50個新單字
+ 1 周 350個新單字
+ 1 月 1500個新單字
+
+目標系統：Goal of milestone
+the goal of a milestone must be very simple!
+		like: 
+			Remember 3000 new words before 02/15/2013.
+
+成就系統：Achievement
+although Goal is simple, achivements could be complicated and many kinds.
+		like: 
+			+. way to Apprantice (100 new words input)
+			+.  Apprantice (100 words remembered)
+			
+			+. way to junior (500 new words input)
+			+.  junior (500 words remembered)
+			
+			+. way to warrior (1000 new words input)
+			+.  warrior (1000 words remembered)
+
+			+. way to Senior (2000 new words input)
+			+.  Senior (2000 words remembered)
+
+			+. way to Master (4000 new words input)
+			+.  Master (4000 words remembered)
+
+			+. way to zealot (8000 new words input)
+			+.  zealot (8000 words remembered)
+
+			+. way to God (13000 new words input)
+			+.  God (13000 words remembered)
+			
+			+. insane vocabulary builder (input 1000 words in 1 week)
+			+. enthusiastic learner(play games everyday for 10 days)
+			+. Goal Keeper(accomplish a milestone perfectly)
+
+記住一個單字的定義：
+	成功回答同一個單字的問題連續N次
+	根據遺忘曲線來設定問題出現的時機點
+	+. N == 3 
+	+. N == 5
+	+. N == 7
+
+積分與社群競爭：
+	顯示目前有多少玩家。
+	積分：
+		+. 輸入新單字 2
+		+. 例句連結既有生字 1
+		+. 輸入單字釋義 (最少2分，字數 / 5)
+		+. 輸入例句 (最少2分，字數 / 10)
+
+		+. 成功『記住一個單字』
+			+. N == 3 
+			+. N == 5
+			+. N == 7
+
+	玩家排行榜：
+		+. 日、周、月、最高
+		+. 新增單字排行
+		+. 已背單字排行
+		+. 活躍排行
+			(正相關：time in game, newly added words, newly remembered words, answered questions)。
+			(負相關：idle times)
+		
+
+	
+
+2012-12-06
 
 玩遊戲背單字
 	+. 快速方便的輸入單字
@@ -86,3 +198,20 @@ http://docs.mongodb.org/manual/reference/sql-comparison/
 
 		
 
+學習如何Mongo DB在Application Design 中如何使用：
+http://docs.mongodb.org/manual/use-cases/
+
+Java Language Center
+http://www.mongodb.org/display/DOCS/Java+Language+Center
+
+Java 語言下基本介紹
+http://www.mongodb.org/display/DOCS/Java+Tutorial
+
+MongoDB JVM javascript Engine(rhino)
+(考慮用JS處理資料與Query比較簡單。)
+http://code.google.com/p/mongodb-rhino/
+http://code.google.com/p/json-rhino/
+http://code.google.com/p/mongo-vision/
+
+SQL與Mongo DB的比較:
+http://docs.mongodb.org/manual/reference/sql-comparison/
