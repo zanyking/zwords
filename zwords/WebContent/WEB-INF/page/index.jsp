@@ -19,13 +19,13 @@
 				<h1 id="zk-logo">
 					<img src="./resource/top_zk_logo.png" title="ZK Logo" alt="ZK Logo">
 				</h1>
-				<h1 id="topic">ZWords - remember more difficult words and have fun!</h1>
+				<h1 id="topic">ZWords - enrich your vocabulary and have fun!</h1>
 			</div>
 			
 			<div class="messages main-block"><!-- ********** left block ********** -->
 				 <div class="messageboard-container">
 				 	<z:page><!-- ********** Attendees Panel View Ctrl **********-->
-					
+						
 				 	</z:page>
 				 </div>
 			</div>

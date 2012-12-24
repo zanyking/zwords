@@ -1,4 +1,44 @@
 
+2012-12-23
+	+. 需要補充mongodb的guide & ref.
+	+. 安裝Guava, Spring3 
+	+. 設定一個Milestone。
+	+. 開始第一個Game。
+		+. 如果單字庫沒有任何資料，Input_New_Word
+		+. 如果有值得複習的舊單字，Word_test
+			+. 出現複習的時機點：
+				+. 單字已複習n次，答對m次，答錯(n-m)次，最近連續答對k次，距離上次測試已經過了X小時。
+				weight: 1/n, 1/2*m, 1/3*k, x
+
+	+. there is a Processing Dequeue:
+		+. While game initializing, system will filter the vocabulary and appened words needed to be reviewed into queue.
+		+. if queue is empty, the default task will be adding a new word.
+		+. if a request showed up, user has to answer it.
+			(filling blank in sentance with synoym and meanings)
+		+. 
+
+
+	+. Rules of word editing mode：
+		+. Add Word
+			+. found a Sentance 
+				+. Add Sentance(check if there's any existing sentance.)
+					[scan whole table]
+				+. check connections with other words.
+
+			+. Edit Description(Hard link to scentance)
+			+. Edit Meanings(Hard link to scentance)
+			+. found a relative word 
+				+. word is already exist.
+				+. this is a new word
+					+. create word immediately(with almost empty body, pushed into next-processing queue)
+
+		+. edit word
+
+		+. Add Sentance
+
+		+. Review
+		
+
 2012-12-16
 
 全英文，單字的英英釋義非常重要。
@@ -18,6 +58,8 @@
 		顯示過去的Milestones
 		
 
+
+
 情境一：Start a new milestone.
 	+. 設定達成目標(the goal of a milestone)
 		+. 戒律：每天要固定練習多久
@@ -30,7 +72,7 @@
 情境二：開始一次遊戲
 	+. 在計畫頁面主控台下開始
 	+. 一個遊戲中，要做的事情有兩種：
-		+. 新例句與新單字輸入
+		+. 新單字輸入
 			+. 標示一個例句中的新單字，加2分。
 			+. 例句中出現已有的單字，加1分。
 				(等於為既有單字增加新例句，要小心使用者abuse 系統？)
@@ -42,7 +84,7 @@
 				+. 釋義
 			+. 輸入例句：根據例句中的生字，建立單字。
 
-		+. 單字複習遊戲
+		+. 複習單字
 			+. 以 (LRU + Random)選取新的單字，開始測試題目。
 			+. 根據釋義、同義字猜測該單字。
 			+. 例句填空
