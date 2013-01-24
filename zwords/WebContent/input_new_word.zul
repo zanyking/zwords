@@ -1,0 +1,22 @@
+<window title="input new words" border="normal" width="800px"
+	apply="idv.zanyking.zwords.word.web.ui.NewWordCtrl">
+
+	<grid id="">
+		<columns>
+			<column width="40%"/>
+			<column />
+		</columns>
+		<rows>
+			<row>word: <textbox id="newWordTxb" /></row>
+			<row>meaning: <textbox id="meaningTxb" /></row>
+			<row>synoyms: <appendable-grid id="synoymsApGrid" /></row>
+			<row>sentances: <appendable-grid id="synoymsApGrid" /></row>
+			<row>meaning: <datebox id="createDate" /></row>			
+			
+		</rows>
+	</grid>
+	<button id="submitBtn" label="Add" />
+
+
+
+</window>

@@ -1,14 +1,40 @@
+2013-01-19
+	new word:
+		word
+		
+	
+
+
+
+2013-01-13
+	+. 做出簡單的單字輸入、輸出頁面。
+	+. 如果採用Spring MVC，就可以鑲嵌ZK在一個jsp template Page裡。
+
+
+	+. 遊戲的開始與結束條件
+		+. 只有手動輸入，隨時可以結束遊戲。
+			+. 高分條件為：例句與字庫既有單字的關聯度。
+
+		+. 根據權重選出30、50、100個字庫單字。		
+			+. 如果終於這次遊戲所有的單字都可以答對(終於有一次可以照遺忘順序把單字都重考一遍沒有出錯)，這次的遊戲就結束。
+			+. 同一個單字出題可以出不同題。
+		
 
 2012-12-23
 	+. 需要補充mongodb的guide & ref.
 	+. 安裝Guava, Spring3 
+
 	+. 設定一個Milestone。
 	+. 開始第一個Game。
 		+. 如果單字庫沒有任何資料，Input_New_Word
 		+. 如果有值得複習的舊單字，Word_test
 			+. 出現複習的時機點：
-				+. 單字已複習n次，答對m次，答錯(n-m)次，最近連續答對k次，距離上次測試已經過了X小時。
-				weight: 1/n, 1/2*m, 1/3*k, x
+				+. 單字已複習n次，答對m次，答錯(n-m)次，最近連續答對k次，距離上次測試已經過了D天 H小時。
+					weight: -n, -m*2, -k*3, 
+					每連續答對第k次，就延遲(k^2*3)天。
+				+. CANDIDATE FORMULA:
+					 24D + H - (k*3*24)
+	
 
 	+. there is a Processing Dequeue:
 		+. While game initializing, system will filter the vocabulary and appened words needed to be reviewed into queue.
@@ -20,8 +46,8 @@
 
 	+. Rules of word editing mode：
 		+. Add Word
-			+. found a Sentance 
-				+. Add Sentance(check if there's any existing sentance.)
+			+. found a Sentence 
+				+. Add Sentence(check if there's any existing sentance.)
 					[scan whole table]
 				+. check connections with other words.
 
@@ -45,10 +71,6 @@
 背單字應該以例句為主，而不是單字！
 單字-單字關係、單字-例句關係所構成的網路連結密集度，構成牢記單字的基礎。
 
-商業模式？
-	找字典廠商合作？
-	結合線上遊戲？電子寵物？
-	貨幣系統可從積分系統轉換而來。
 
 網站設計：
 	OpenID支援、FB、google plus、傳統email + password (不是很重要，之後再做)
@@ -60,7 +82,7 @@
 
 
 
-情境一：Start a new milestone.
+情境一： Set a new milestone.
 	+. 設定達成目標(the goal of a milestone)
 		+. 戒律：每天要固定練習多久
 		+. 平均日單字目標
@@ -71,8 +93,9 @@
 
 情境二：開始一次遊戲
 	+. 在計畫頁面主控台下開始
+	+. if there's no Milestone behind, system must create one which just list the accumulated result.
 	+. 一個遊戲中，要做的事情有兩種：
-		+. 新單字輸入
+		+. 新單字輸入(INPUT NEW WORD)
 			+. 標示一個例句中的新單字，加2分。
 			+. 例句中出現已有的單字，加1分。
 				(等於為既有單字增加新例句，要小心使用者abuse 系統？)
@@ -84,7 +107,7 @@
 				+. 釋義
 			+. 輸入例句：根據例句中的生字，建立單字。
 
-		+. 複習單字
+		+. 複習單字(TEST)
 			+. 以 (LRU + Random)選取新的單字，開始測試題目。
 			+. 根據釋義、同義字猜測該單字。
 			+. 例句填空
